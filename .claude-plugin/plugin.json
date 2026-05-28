@@ -1,0 +1,8 @@
+{
+  "name": "denver-skills",
+  "description": "Denver's reusable Claude Code skills",
+  "version": "0.1.0",
+  "author": {
+    "name": "Denver Peterson"
+  }
+}
