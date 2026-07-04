@@ -1,0 +1,25 @@
+/* Dense page (roadmap / changelog / analysis) — paste into base.html <style>.
+   Use instead of deck.css when the content is a scrollable briefing, not full-screen slides.
+   Note: no reference deck backs this branch; it is the skill's house-style extrapolation. */
+
+.top-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(8, 12, 20, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 48px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.page-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 88px 48px 80px;
+}
