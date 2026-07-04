@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Command-Center Deck</title>
+<!-- Inter loads from Google Fonts; offline it falls back to the system stack below. -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #080c14;
+  --surface: #0d1117;
+  --surface-raised: #131922;
+  --border: rgba(59, 130, 246, 0.15);
+  --border-hover: rgba(59, 130, 246, 0.4);
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --accent: #3B82F6;
+  --accent-light: #60A5FA;
+  --accent-deep: #2563EB;
+  --accent-glow: rgba(59, 130, 246, 0.25);
+  --violet: #a78bfa;
+  --green: #34d399;
+  --red: #f87171;
+  --amber: #fbbf24;
+  --x: 50%;
+  --y: 50%;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Mouse-following spotlight */
+#spotlight {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--x) var(--y),
+    rgba(59, 130, 246, 0.06),
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Typography */
+h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+h2 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1rem; }
+h3 { font-size: 1.25rem; font-weight: 600; }
+
+.text-muted  { color: var(--text-muted); }
+.text-accent { color: var(--accent-light); }
+.text-green  { color: var(--green); }
+.text-red    { color: var(--red); }
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent-deep), var(--accent) 70%, var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-light);
+  margin-bottom: 1.5rem;
+}
+
+/* Cards */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 28px;
+  transition: border-color 0.3s ease, transform 0.2s ease;
+}
+.card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+
+/* Metric boxes */
+.metrics-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.metric-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  text-align: center;
+}
+.metric-value { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.metric-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
+
+/* Gradient number variants (stops are shades of the palette tokens) */
+.gradient-green  { background: linear-gradient(135deg, #10b981, var(--green) 70%, #6ee7b7); }
+.gradient-blue   { background: linear-gradient(135deg, var(--accent-deep), var(--accent) 70%, var(--accent-light)); }
+.gradient-violet { background: linear-gradient(135deg, #8b5cf6, var(--violet) 70%, #c4b5fd); }
+.gradient-red    { background: linear-gradient(135deg, var(--red), #ef4444); }
+.gradient-green, .gradient-blue, .gradient-violet, .gradient-red {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Pills */
+.pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill {
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Tables */
+.table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+th {
+  background: var(--surface-raised);
+  padding: 14px 18px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+td { padding: 12px 18px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-muted); }
+td:first-child { color: var(--text); font-weight: 600; }
+tr:hover { background: rgba(59, 130, 246, 0.04); }
+
+/* Status color helpers (reference the palette tokens; never restate hex) */
+.status-success { color: var(--green); }
+.status-risk    { color: var(--red); }
+.status-warn    { color: var(--amber); }
+.status-action  { color: var(--accent-light); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  .section-inner { opacity: 1; transform: none; }
+}
+
+/* ADD your branch stylesheet here:
+   - Narrative deck  -> paste assets/deck.css, and assets/deck.js into the script tag
+   - Dense page      -> paste assets/page.css
+*/
+</style>
+</head>
+<body>
+<div id="spotlight"></div>
+
+<!-- PAGE / PRESENTATION CONTENT GOES HERE -->
+
+<script>
+document.addEventListener('mousemove', e => {
+  document.documentElement.style.setProperty('--x', e.clientX + 'px');
+  document.documentElement.style.setProperty('--y', e.clientY + 'px');
+});
+// ADD assets/deck.js here for narrative decks.
+</script>
+</body>
+</html>
