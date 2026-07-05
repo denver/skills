@@ -1,0 +1,20 @@
+/* Graphite: neutral graphite surfaces with an amber accent. Ops-room feel
+   for incident reviews, on-call briefings, and reliability decks.
+   Contrast: --text vs --bg 15.7:1, --text-muted vs --surface 7.2:1,
+   --accent-light vs --surface 11.0:1 (all past the AA floor). */
+
+:root {
+  --bg: #0b0d10;
+  --surface: #12151a;
+  --surface-raised: #1a1e24;
+  --border: rgba(245, 158, 11, 0.15);
+  --border-hover: rgba(245, 158, 11, 0.4);
+  --text: #e5e7eb;
+  --text-muted: #9ca3af;
+  --accent: #f59e0b;
+  --accent-light: #fbbf24;
+  --accent-deep: #d97706;
+  --accent-glow: rgba(245, 158, 11, 0.25);
+  --accent-rgb: 245, 158, 11;
+  --bg-rgb: 11, 13, 16;
+}

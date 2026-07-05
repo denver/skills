@@ -1,6 +1,6 @@
-// Narrative slide deck behavior — paste into base.html <script> (after the spotlight handler).
+// Narrative slide deck behavior: paste into base.html <script> (after the spotlight handler).
 // Expects <div id="progress"></div>, <div id="dots"></div>, and <section> elements each
-// wrapping a .section-inner. Mirrors the reference deck: width-based progress bar.
+// wrapping a .section-inner. Progress bar scales via transform (compositor-only, no layout).
 
 (() => {
   const sections = Array.from(document.querySelectorAll('section'));
@@ -22,7 +22,7 @@
       entry.target.querySelector('.section-inner')?.classList.add('visible');
       const idx = sections.indexOf(entry.target);
       dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-      progress.style.width = ((idx + 1) / sections.length) * 100 + '%';
+      progress.style.transform = 'scaleX(' + ((idx + 1) / sections.length) + ')';
     });
   }, { threshold: 0.5 });
   sections.forEach(s => observer.observe(s));

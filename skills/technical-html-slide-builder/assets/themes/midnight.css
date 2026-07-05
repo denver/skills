@@ -1,0 +1,29 @@
+/* Midnight: the house default, extracted verbatim from base.html so the
+   default is a named theme rather than an accident. Applying this block
+   changes nothing; it exists as the reference for writing new themes. */
+
+:root {
+  --bg: #080c14;
+  --surface: #0d1117;
+  --surface-raised: #131922;
+  --border: rgba(59, 130, 246, 0.15);
+  --border-hover: rgba(59, 130, 246, 0.4);
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --accent: #3B82F6;
+  --accent-light: #60A5FA;
+  --accent-deep: #2563EB;
+  --accent-glow: rgba(59, 130, 246, 0.25);
+  --accent-rgb: 59, 130, 246;
+  --bg-rgb: 8, 12, 20;
+  --violet: #a78bfa;
+  --green: #34d399;
+  --red: #f87171;
+  --amber: #fbbf24;
+  --green-deep: #10b981;
+  --green-bright: #6ee7b7;
+  --violet-deep: #8b5cf6;
+  --violet-bright: #c4b5fd;
+  --red-deep: #ef4444;
+  --row-line: rgba(255, 255, 255, 0.04);
+}
