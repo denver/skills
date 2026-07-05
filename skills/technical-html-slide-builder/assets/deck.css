@@ -35,10 +35,12 @@ section {
   position: fixed;
   top: 0; left: 0;
   height: 3px;
-  width: 0;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
   background: linear-gradient(90deg, var(--accent-deep), var(--accent-light));
   z-index: 200;
-  transition: width 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 /* Right-side section dots */
