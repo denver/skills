@@ -24,6 +24,12 @@
   --green: #047857;
   --red: #b91c1c;
   --amber: #b45309;
+  --green-deep: #065f46;   /* gradient ramps darkened for light surfaces */
+  --green-bright: #059669;
+  --violet-deep: #5b21b6;
+  --violet-bright: #7c3aed;
+  --red-deep: #991b1b;
+  --row-line: rgba(15, 23, 42, 0.08); /* ink-tinted separator; white alpha vanishes on light */
 }
 
 /* The spotlight is a dark-room effect; it has no place on paper. */

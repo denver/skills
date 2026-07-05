@@ -27,12 +27,18 @@ A theme may override any subset of these tokens:
 | `--accent-rgb` | RGB channels of `--accent`, used by rgba() tints |
 | `--bg-rgb` | RGB channels of `--bg`, used by translucent surfaces |
 | `--violet` / `--green` / `--red` / `--amber` | Semantic status colors |
+| `--green-deep` / `--green-bright` / `--violet-deep` / `--violet-bright` / `--red-deep` | Gradient shade ramps for the `.gradient-*` number variants |
+| `--row-line` | Table row separator line |
 | `--font-display` / `--font-body` | Type, if the theme changes it |
 
 Derived tokens must stay consistent: `--accent-rgb` is the channel triple of
 `--accent`, `--bg-rgb` of `--bg`, and `--border`, `--border-hover`, and
 `--accent-glow` are rgba() tints of the accent. Never leave a theme's accent
-pointing at another theme's tints.
+pointing at another theme's tints. Likewise the gradient shade ramps are
+lighter/darker shades of their semantic color: a theme that changes `--green`
+should re-derive `--green-deep`/`--green-bright` with it. `--row-line` must
+stay visible against `--surface` (light themes need an ink-tinted line, not
+white alpha).
 
 ## Contrast floor
 

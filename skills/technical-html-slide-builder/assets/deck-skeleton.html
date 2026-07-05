@@ -37,6 +37,12 @@
   --green: #34d399;
   --red: #f87171;
   --amber: #fbbf24;
+  --green-deep: #10b981;   /* gradient shade ramps for the .gradient-* variants; */
+  --green-bright: #6ee7b7; /* keep them shades of their semantic color above    */
+  --violet-deep: #8b5cf6;
+  --violet-bright: #c4b5fd;
+  --red-deep: #ef4444;
+  --row-line: rgba(255, 255, 255, 0.04); /* table row separator; must stay visible on --surface */
   --x: 50%;
   --y: 50%;
 }
@@ -111,11 +117,11 @@ h3 { font-size: 1.25rem; font-weight: 600; }
 .metric-value { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
 .metric-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
 
-/* Gradient number variants (stops are shades of the palette tokens) */
-.gradient-green  { background: linear-gradient(135deg, #10b981, var(--green) 70%, #6ee7b7); }
+/* Gradient number variants (all stops are tokens) */
+.gradient-green  { background: linear-gradient(135deg, var(--green-deep), var(--green) 70%, var(--green-bright)); }
 .gradient-blue   { background: linear-gradient(135deg, var(--accent-deep), var(--accent) 70%, var(--accent-light)); }
-.gradient-violet { background: linear-gradient(135deg, #8b5cf6, var(--violet) 70%, #c4b5fd); }
-.gradient-red    { background: linear-gradient(135deg, var(--red), #ef4444); }
+.gradient-violet { background: linear-gradient(135deg, var(--violet-deep), var(--violet) 70%, var(--violet-bright)); }
+.gradient-red    { background: linear-gradient(135deg, var(--red), var(--red-deep)); }
 .gradient-green, .gradient-blue, .gradient-violet, .gradient-red {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -148,7 +154,7 @@ th {
   color: var(--text-muted);
   border-bottom: 1px solid var(--border);
 }
-td { padding: 12px 18px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-muted); }
+td { padding: 12px 18px; border-bottom: 1px solid var(--row-line); color: var(--text-muted); }
 td:first-child { color: var(--text); font-weight: 600; }
 tr:hover { background: rgba(var(--accent-rgb), 0.04); }
 

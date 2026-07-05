@@ -20,4 +20,10 @@
   --green: #34d399;
   --red: #f87171;
   --amber: #fbbf24;
+  --green-deep: #10b981;
+  --green-bright: #6ee7b7;
+  --violet-deep: #8b5cf6;
+  --violet-bright: #c4b5fd;
+  --red-deep: #ef4444;
+  --row-line: rgba(255, 255, 255, 0.04);
 }

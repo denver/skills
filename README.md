@@ -26,7 +26,7 @@ Reads the `skills/` folder and copies each skill into your agent's skills direct
 ## Skills
 
 - **summarize** — Capture the current session as a durable markdown summary a future agent can resume from. Resolves the destination deterministically (explicit path, then a configured second-brain location, otherwise `./summaries/`).
-- **technical-html-slide-builder** — Build standalone dark "command-center" HTML decks and dense roadmap/changelog pages. Copy `assets/base.html`, add a branch stylesheet, fill in content.
+- **technical-html-slide-builder** — Build standalone dark "command-center" HTML decks, dense roadmap/changelog pages, and light print one-pagers. Copy a pre-assembled skeleton (`assets/deck-skeleton.html` / `assets/page-skeleton.html`), fill in content; optional token themes live in `assets/themes/`.
 
 ## Layout
 
