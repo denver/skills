@@ -1,3 +1,10 @@
+<!--
+  GENERATED FILE - do not edit the visual system here.
+  Built from assets/base.html + assets/page.css by scripts/build-skeletons.mjs.
+  Edits to tokens, components, or behavior belong in those source assets;
+  regenerate afterwards. This file is meant to be copied once and filled
+  with content.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -220,25 +227,51 @@ tr:hover { background: rgba(var(--accent-rgb), 0.04); }
   .loop-arrow { display: none; }
 }
 
-/* ADD your branch stylesheet here:
-   - Narrative deck  -> paste assets/deck.css, and assets/deck.js into the script tag
-   - Dense page      -> paste assets/page.css
-   Prefer the pre-merged skeletons (assets/deck-skeleton.html, assets/page-skeleton.html);
-   they are generated from these sources by scripts/build-skeletons.mjs.
-*/
+/* Dense page (roadmap / changelog / analysis) — paste into base.html <style>.
+   Use instead of deck.css when the content is a scrollable briefing, not full-screen slides.
+   Note: no reference deck backs this branch; it is the skill's house-style extrapolation. */
+
+.top-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(var(--bg-rgb), 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 48px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.page-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 88px 48px 80px;
+}
 </style>
 </head>
 <body>
 <div id="spotlight"></div>
 
-<!-- PAGE / PRESENTATION CONTENT GOES HERE -->
+<nav class="top-nav">
+  <strong>Title</strong>
+  <span class="text-muted">Date or range</span>
+</nav>
+
+<main class="page-container">
+  <!-- Page content -->
+</main>
 
 <script>
 document.addEventListener('mousemove', e => {
   document.documentElement.style.setProperty('--x', e.clientX + 'px');
   document.documentElement.style.setProperty('--y', e.clientY + 'px');
 });
-// ADD assets/deck.js here for narrative decks.
+
 </script>
 </body>
 </html>
