@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "denver-skills",
+  "description": "Denver's reusable Claude Code skills",
+  "owner": {
+    "name": "Denver Peterson"
+  },
+  "plugins": [
+    {
+      "name": "denver-skills",
+      "source": ".",
+      "description": "Denver's reusable Claude Code skills: summarize, technical-html-slide-builder",
+      "version": "0.1.0"
+    }
+  ]
+}
