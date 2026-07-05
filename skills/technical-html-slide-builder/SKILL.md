@@ -11,6 +11,14 @@ The base layer for the **command-center deck** house style: dark, sharp, high-si
 
 This skill owns the shared visual system (tokens, spotlight, typography, components) and two layout branches. Higher-level HTML skills compose on top of it rather than restating its CSS.
 
+## Invocation
+
+Arguments: `[theme=<name>] [branch=deck|page|print] <brief>`
+
+- `theme=` names a file in `assets/themes/` (e.g. `theme=graphite`). Omitted means the default midnight palette with no theme block applied.
+- `branch=` picks the layout branch. Omitted means infer from the brief: narrative or presentation asks get the deck, dense reference material gets the page, printable memos get print.
+- Everything else is the brief: topic, audience, slide count, tone, structure. Instructions in the brief override this skill's defaults; the skill supplies the visual system, the brief supplies intent.
+
 ## How to build
 
 1. Copy the pre-assembled skeleton for your branch. Each is one complete, openable file generated from the source assets:
