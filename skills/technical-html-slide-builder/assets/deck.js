@@ -1,4 +1,4 @@
-// Narrative slide deck behavior — paste into base.html <script> (after the spotlight handler).
+// Narrative slide deck behavior: paste into base.html <script> (after the spotlight handler).
 // Expects <div id="progress"></div>, <div id="dots"></div>, and <section> elements each
 // wrapping a .section-inner. Progress bar scales via transform (compositor-only, no layout).
 
