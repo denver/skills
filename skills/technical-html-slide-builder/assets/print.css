@@ -1,0 +1,46 @@
+/* Print / one-pager (decision memo, light briefing): paste into base.html
+   <style> at the splice marker. Third branch: light token overrides plus
+   print-safe layout. No scroll-snap, no deck.js. No skeleton is generated
+   for this branch; copy base.html and paste this file in.
+   Contrast on the light palette: --text vs --bg 17.9:1, --text-muted vs
+   --surface 7.2:1, --accent-light vs --surface 6.4:1, status colors 4.8:1
+   or better (all past the AA floor). */
+
+:root {
+  --bg: #ffffff;
+  --surface: #f8fafc;
+  --surface-raised: #f1f5f9;
+  --border: rgba(37, 99, 235, 0.2);
+  --border-hover: rgba(37, 99, 235, 0.45);
+  --text: #0f172a;
+  --text-muted: #475569;
+  --accent: #2563EB;
+  --accent-light: #1d4ed8; /* darker than the dark-theme ramp: it carries text on light surfaces */
+  --accent-deep: #1e40af;
+  --accent-glow: rgba(37, 99, 235, 0.12);
+  --accent-rgb: 37, 99, 235;
+  --bg-rgb: 255, 255, 255;
+  --violet: #7c3aed;
+  --green: #047857;
+  --red: #b91c1c;
+  --amber: #b45309;
+}
+
+/* The spotlight is a dark-room effect; it has no place on paper. */
+#spotlight { display: none; }
+
+.memo-container {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 56px 40px;
+}
+
+@media print {
+  @page { margin: 18mm; }
+  body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .card, .metric-box, .table-wrap, .loop-step, .seq-item { break-inside: avoid; }
+  .card:hover { transform: none; }
+  .memo-container { max-width: none; padding: 0; }
+}
