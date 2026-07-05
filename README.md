@@ -1,5 +1,7 @@
 # denver-skills
 
+[![skills.sh](https://skills.sh/b/denver/skills)](https://skills.sh/denver/skills)
+
 Denver's reusable Claude Code skills. This repo works as both a Claude Code plugin/marketplace and a skills.sh source, so install it whichever way fits.
 
 ## Install
