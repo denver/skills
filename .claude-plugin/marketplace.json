@@ -9,7 +9,7 @@
     {
       "name": "denver-skills",
       "source": ".",
-      "description": "Denver's reusable Claude Code skills: summarize, technical-html-slide-builder",
+      "description": "Denver's reusable Claude Code skills: summarize, technical-html-slide-builder, worktree-cleanup",
       "version": "0.1.0"
     }
   ]

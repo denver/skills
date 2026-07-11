@@ -27,6 +27,7 @@ Reads the `skills/` folder and copies each skill into your agent's skills direct
 
 - **summarize** — Capture the current session as a durable markdown summary a future agent can resume from. Resolves the destination deterministically (explicit path, then a configured second-brain location, otherwise `./summaries/`).
 - **technical-html-slide-builder** — Build standalone dark "command-center" HTML decks, dense roadmap/changelog pages, and light print one-pagers. Copy a pre-assembled skeleton (`assets/deck-skeleton.html` / `assets/page-skeleton.html`), fill in content; optional token themes live in `assets/themes/`.
+- **worktree-cleanup** — Judge whether the current git worktree is *stale* (clean, pushed, already merged) and remove it once you say yes. Detects squash- and rebase-merged branches, which `git branch --merged` reports as unmerged forever.
 
 ## Layout
 
@@ -37,4 +38,5 @@ Reads the `skills/` folder and copies each skill into your agent's skills direct
 skills/
   summarize/SKILL.md
   technical-html-slide-builder/SKILL.md
+  worktree-cleanup/SKILL.md
 ```
